@@ -53,12 +53,14 @@ random_poems = [
 def handle_update(update):
     if update.message:
         text = update.message.text
+        chat_id = update.message.chat.id
     elif update.edited_message:
         text = update.edited_message.text
+        chat_id = update.edited_message.chat.id
     else:
+        log.info("Unable to find text in update. Going to skip it.")
         return
 
-    chat_id = update.message.chat.id
     mp_bot = telegram.Bot(token=secrets.mino_pausa_bot_token)
 
     if text == '/start':
@@ -70,16 +72,12 @@ def handle_update(update):
         sleep(5)
         mp_bot.sendMessage(str(chat_id), "Per piacere...", disable_web_page_preview=True)
         sleep(7)
-        mp_bot.sendMessage(str(chat_id), get_random_poem(), disable_web_page_preview=True)
+        mp_bot.sendMessage(str(chat_id), random.choice(random_poems), disable_web_page_preview=True)
         log.info("Random poem sent.")
 
 
 def sad_message(text):
     return len(set(text.lower().split(" ")) & sad_words) > 0
-
-
-def get_random_poem():
-    return random_poems[random.randint(0, len(random_poems))]
 
 
 def get_status():
