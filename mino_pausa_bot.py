@@ -51,9 +51,13 @@ random_poems = [
 
 
 def handle_update(update):
-    text = update.message.text
-    if not text:
+    if update.message:
+        text = update.message.text
+    elif update.edited_message:
+        text = update.edited_message.text
+    else:
         return
+
     chat_id = update.message.chat.id
     mp_bot = telegram.Bot(token=secrets.mino_pausa_bot_token)
 
