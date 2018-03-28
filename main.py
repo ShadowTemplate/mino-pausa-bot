@@ -33,6 +33,6 @@ class WebhookHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/set_webhook', SetWebhookHandler),
+    # ('/set_webhook', SetWebhookHandler),
     ('/webhook', WebhookHandler)
 ], debug=True)

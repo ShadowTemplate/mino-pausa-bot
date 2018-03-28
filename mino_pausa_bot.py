@@ -6,13 +6,52 @@ import secrets
 import telegram
 from time import sleep
 
-sad_words = {"addolorato", "afflitto", "afflizione", "ambascia", "angustia", "autocommiserazione", "avvilimento",
-             "cordoglio", "cupezza", "cupo", "demoralizzante", "demoralizzato", "depressione", "deprimente", "desolato",
-             "desolazione", "disperato", "disperazione", "dispiaciuto", "dolore", "doloroso", "funereo", "infelice",
-             "infelicità", "insoddisfatto", "insoddisfazione", "lugubre", "malessere", "malinconia", "malinconico",
-             "mestizia", "mesto", "oppressione", "opprimente", "pena", "penoso", "sconfortato", "sconforto",
-             "sofferenza", "solitudine", "straziante", "strazio", "tedio", "tedioso", "tetraggine", "tetro",
-             "tristezza"}
+sad_words = {"addolorato", "addolorata", "addolorate", "addolorati",
+             "afflitto", "afflitta", "afflitte", "afflitti",
+             "afflizione", "afflizioni",
+             "angustia", "angustie",
+             "autocommiserazione", "autocommiserazioni",
+             "avvilimento", "avvilimenti",
+             "cordoglio", "cordoglii",
+             "cupezza", "cupezze",
+             "cupo", "cupa", "cupe", "cupi",
+             "demoralizzante", "demoralizzanti",
+             "demoralizzato", "demoralizzata", "demoralizzate", "demoralizzati",
+             "depressione", "depressioni",
+             "deprimente", "deprimenti",
+             "desolato", "desolata", "desolate", "desolati",
+             "desolazione", "desolazioni",
+             "disperato", "disperata", "disperate", "disperati",
+             "disperazione", "disperazioni",
+             "dispiaciuto", "dispiaciuta", "dispiaciute", "dispiaciuti",
+             "dolore", "dolori",
+             "doloroso", "dolorosa", "dolorose", "dolorosi",
+             "funereo", "funerei",
+             "infelice", "infelici",
+             "infelicità",
+             "insoddisfatto", "insoddisfatta", "insoddisfatte", "insoddisfatti",
+             "insoddisfazione", "insoddisfazioni",
+             "lugubre", "lugubri",
+             "malessere", "malesseri",
+             "malinconia", "malinconie",
+             "malinconico", "malinconica", "malinconiche", "malinconici",
+             "mestizia", "mestizie",
+             "mesto", "mesta", "meste", "mesti",
+             "oppressione", "oppressioni",
+             "opprimente", "opprimenti",
+             "pena", "pene",
+             "penoso", "penosa", "penose", "penosi",
+             "sconfortato", "sconfortata", "sconfortate", "sconfortati",
+             "sconforto", "sconforti",
+             "sofferenza", "sofferenze",
+             "solitudine", "solitudini",
+             "straziante", "strazianti",
+             "strazio", "strazi",
+             "tedio", "tedi",
+             "tedioso", "tediosa", "tediose", "tediosi",
+             "tetraggine", "tetraggini",
+             "tetro", "tetra", "tetre", "tetri",
+             "tristezza", "tristezze"}
 
 random_poems = [
     "STRANEZZE DI UN INCENDIO.\nOgni cosa tra le fiamme si accende.\nTu invece ti sei spenta.",
@@ -76,8 +115,13 @@ def handle_update(update):
         log.info("Random poem sent.")
 
 
+def custom_filter(c):
+    return unicode.isalnum(c) or c == " "
+
+
 def sad_message(text):
-    return len(set(text.lower().split(" ")) & sad_words) > 0
+    clean_text = "".join(filter(custom_filter, text.lower()))
+    return len(set(clean_text.split(" ")) & sad_words) > 0
 
 
 def get_status():
