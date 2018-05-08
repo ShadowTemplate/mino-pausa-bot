@@ -6,7 +6,7 @@ words to be triggered. It is designed to be deployed on
 [Google App Engine](https://cloud.google.com/appengine/).
 
 Feel free to use the bot in your groups by adding [@MinoPausaBot](
-telegram.me/minopausabot).
+https://telegram.me/minopausabot).
 
 ---
 ## Information
