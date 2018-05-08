@@ -35,8 +35,8 @@ mino_pausa_bot_token = "your_telegram_bot_token"
 Clone the repository and install the required Python dependencies:
 
 ```
-$ git clone https://github.com/ShadowTemplate/Mino-Pausa-Bot.git
-$ cd Mino-Pausa-Bot/
+$ git clone https://github.com/ShadowTemplate/mino-pausa-bot.git
+$ cd mino-pausa-bot/
 $ pip install --user -r requirements.txt
 ```
 
