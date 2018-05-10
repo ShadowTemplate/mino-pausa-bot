@@ -17,7 +17,8 @@ https://telegram.me/minopausabot).
 
 **Development year(s)**: `2016+`
 
-**Author(s)**: Andrea, [ShadowTemplate](https://github.com/ShadowTemplate)
+**Author(s)**: Andrea (poems), [ShadowTemplate](
+https://github.com/ShadowTemplate) (code)
 
 ---
 ## Getting Started
